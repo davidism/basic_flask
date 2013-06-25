@@ -1,0 +1,3 @@
+Flask-Script
+Flask-SQLAlchemy
+alembic
