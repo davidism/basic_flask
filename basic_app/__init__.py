@@ -27,6 +27,7 @@ def create_app(config=config):
     app.config.from_object(config)
 
     init_extensions(app)
+    init_views(app)
 
     return app
 
