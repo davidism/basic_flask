@@ -1,0 +1,24 @@
+version: "2.1"
+services:
+  flask:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ./start.sh
+    volumes:
+      - ./src:/app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:9.6
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data/pg:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: flask
+      POSTGRES_PASSWORD: 3CJuVaT7rRo75zGB3qmN6xzg3q9aM3G6SGWhPFXDWPRjskXcckD8HSQWG7v9wVfD
+      POSTGRES_DB: flask
